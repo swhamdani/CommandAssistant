@@ -10,7 +10,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
-        Dialog.setObjectName("Dialog")
+        Dialog.setObjectName("Command Assistant UI")
         Dialog.resize(734, 596)
         self.runHere = QtWidgets.QPushButton(Dialog)
         self.runHere.setGeometry(QtCore.QRect(450, 130, 91, 23))
