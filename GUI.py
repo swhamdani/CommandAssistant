@@ -8,29 +8,30 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_Dialog(object):
-    def setupUi(self, Dialog):
-        Dialog.setObjectName("Command Assistant UI")
-        Dialog.resize(734, 596)
-        self.runHere = QtWidgets.QPushButton(Dialog)
+
+class GuiDialog(object):
+    def setup_gui(self, dialog):
+        dialog.setObjectName("Command Assistant UI")
+        dialog.resize(734, 596)
+        self.runHere = QtWidgets.QPushButton(dialog)
         self.runHere.setGeometry(QtCore.QRect(450, 130, 91, 23))
         self.runHere.setObjectName("runHere")
-        self.lineEditCmd = QtWidgets.QLineEdit(Dialog)
+        self.lineEditCmd = QtWidgets.QLineEdit(dialog)
         self.lineEditCmd.setGeometry(QtCore.QRect(270, 130, 121, 20))
         self.lineEditCmd.setObjectName("lineEditCmd")
-        self.label_2 = QtWidgets.QLabel(Dialog)
+        self.label_2 = QtWidgets.QLabel(dialog)
         self.label_2.setGeometry(QtCore.QRect(150, 130, 121, 16))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
-        self.runCMD = QtWidgets.QPushButton(Dialog)
+        self.runCMD = QtWidgets.QPushButton(dialog)
         self.runCMD.setGeometry(QtCore.QRect(550, 130, 141, 23))
         self.runCMD.setObjectName("runCMD")
-        self.clrButton = QtWidgets.QPushButton(Dialog)
+        self.clrButton = QtWidgets.QPushButton(dialog)
         self.clrButton.setGeometry(QtCore.QRect(400, 130, 41, 23))
         self.clrButton.setObjectName("clrButton")
-        self.label = QtWidgets.QLabel(Dialog)
+        self.label = QtWidgets.QLabel(dialog)
         self.label.setGeometry(QtCore.QRect(160, 30, 531, 61))
         font = QtGui.QFont()
         font.setPointSize(20)
@@ -38,16 +39,16 @@ class Ui_Dialog(object):
         font.setWeight(75)
         self.label.setFont(font)
         self.label.setObjectName("label")
-        self.textEdit = QtWidgets.QTextEdit(Dialog)
+        self.textEdit = QtWidgets.QTextEdit(dialog)
         self.textEdit.setGeometry(QtCore.QRect(150, 160, 541, 431))
         self.textEdit.setObjectName("textEdit")
 
-        self.retranslateUi(Dialog)
-        QtCore.QMetaObject.connectSlotsByName(Dialog)
+        self.retranslate_gui(dialog)
+        QtCore.QMetaObject.connectSlotsByName(dialog)
 
-    def retranslateUi(self, Dialog):
+    def retranslate_gui(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "CMDAssistant"))
+        Dialog.setWindowTitle(_translate("Dialog", "Command Assistant UI"))
         self.runHere.setText(_translate("Dialog", "Execute Here"))
         self.label_2.setText(_translate("Dialog", "Enter Command"))
         self.runCMD.setText(_translate("Dialog", "Execute on CMD Prompt"))

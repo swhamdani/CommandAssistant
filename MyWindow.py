@@ -1,11 +1,18 @@
 import sys
 import os
 from PyQt5.QtWidgets import QDialog, QApplication
-from GUI import Ui_Dialog
+from GUI import GuiDialog
 from PyQt5.QtCore import pyqtSlot
 from utils import syscmd
 
+
 class AppWindow(QDialog):
+
+    #Run Command on app run / GUI load
+    def commands(self):
+        out = syscmd("net start")
+        self.ui.textEdit.setText(out.decode("utf-8"))
+
     @pyqtSlot()
     def on_click(self):
         if self.ui.lineEditCmd.text():
@@ -29,16 +36,20 @@ class AppWindow(QDialog):
         self.ui.lineEditCmd.setText("")
         self.ui.textEdit.setText("")
 
-    def __init__(self):
+    def __init__(self): #this is constructor and execution starting point#
         super().__init__()
-        self.ui = Ui_Dialog()
-        self.ui.setupUi(self)
+        self.ui = GuiDialog()
+        self.ui.setup_gui(self)
         self.show()
+
+        #To execute method on app run
+        self.commands()
 
         # PushButtons Click event
         self.ui.runHere.clicked.connect(self.on_click)
         self.ui.runCMD.clicked.connect(self.run_on_cmd_prompt)
         self.ui.clrButton.clicked.connect(self.clear_data)
+
 
 app = QApplication(sys.argv)
 w = AppWindow()
